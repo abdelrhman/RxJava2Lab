@@ -17,9 +17,9 @@ public class PlayGround {
     public static void main(String[] args) {
 
         // Iterator pattern.
-        final List<String> numbers  = Arrays.asList("One", "Two", "Three", "Four", "Five");
+        final List<String> numbers = Arrays.asList("One", "Two", "Three", "Four", "Five");
         Iterator<String> numbersIterator = numbers.iterator();
-        while (numbersIterator.hasNext()){
+        while (numbersIterator.hasNext()) {
             System.out.println(numbersIterator.next());
         }
 
@@ -51,8 +51,9 @@ public class PlayGround {
                 System.out.println("On Subscribe");
             }
         });
-        
+
 
     }
 
+   
 }
