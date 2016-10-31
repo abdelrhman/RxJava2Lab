@@ -9,6 +9,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Arrays;
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 /**
  * Chapter3.
@@ -17,6 +18,24 @@ public class Playground {
 
     public static void main(String[] args) {
 
+        //formAndJust();
+        subscripePrint(Observable.interval(500, TimeUnit.MILLISECONDS),"Interval Observable");
+        subscripePrint(Observable.interval(0L,1L, TimeUnit.SECONDS),"Timed Interval Observable");
+        subscripePrint(Observable.timer(1L, TimeUnit.SECONDS),"Timer Observable");
+        subscripePrint(Observable.error(Exception::new),"Error Observable");
+        subscripePrint(Observable.empty(),"Empty Observable");
+        subscripePrint(Observable.never(),"Never Observable");
+        subscripePrint(Observable.range(1,3),"Range Observable");
+        try {
+            Thread.sleep(2000L);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+
+    }
+
+    private static void formAndJust() {
         List<String> colors = Arrays.asList("Red", "Green", "Blue");
         Observable.fromIterable(colors)
                 .subscribe(System.out::println);
@@ -41,7 +60,16 @@ public class Playground {
         Observable.just(new User("Ahmad","Talat"))
                 .map( u -> u.getFname() + " " + u.getLname())
                 .subscribe(System.out::println);
-
     }
+
+    private static <T> void subscripePrint( Observable<T> observable, String name){
+        observable.subscribe( (v) -> {
+            System.out.println(name + " "+ v);
+        }, (e) -> {
+            System.err.println("Error from "+name);
+            System.err.println(e.getLocalizedMessage());
+        },() ->{System.out.println(name + " Completed");});
+    }
+
 
 }

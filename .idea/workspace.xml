@@ -2,9 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="d69dddff-1c8c-479f-96a5-e0436d31ba40" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/chapter3/Playground.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/chapter3/User.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chapter3/Playground.java" afterPath="$PROJECT_DIR$/src/main/java/chapter3/Playground.java" />
     </list>
     <ignored path="rxjava2lab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -32,19 +31,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Playground.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="Playground.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chapter3/Playground.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="290">
-              <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
+            <state relative-caret-position="170">
+              <caret line="21" column="91" selection-start-line="21" selection-start-column="91" selection-end-line="21" selection-end-column="91" />
               <folding>
                 <element signature="imports" expanded="true" />
+                <element signature="method#formAndJust#0;class#Playground#0" expanded="false" />
+                <element signature="method#subscripePrint#0;class#Playground#0" expanded="false" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="User.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="User.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/chapter3/User.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="105">
@@ -585,6 +586,7 @@
     <property name="settings.editor.selected.configurable" value="reference.projectsettings.compiler.javacompiler" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="prop_add_unversioned_files" value="true" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RunManager" selected="Application.Playground">
     <configuration default="false" name="PlayGround" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
@@ -961,7 +963,14 @@
       <option name="project" value="LOCAL" />
       <updated>1477877454493</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="from, just examples">
+      <created>1477913754141</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1477913754141</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1013,7 +1022,8 @@
     <MESSAGE value="add gitignore" />
     <MESSAGE value="introduce java 8 lambdas" />
     <MESSAGE value="implement reactive sum with lambdas" />
-    <option name="LAST_COMMIT_MESSAGE" value="implement reactive sum with lambdas" />
+    <MESSAGE value="from, just examples" />
+    <option name="LAST_COMMIT_MESSAGE" value="from, just examples" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -1129,16 +1139,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/chapter3/Playground.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="46" column="0" selection-start-line="46" selection-start-column="0" selection-end-line="46" selection-end-column="0" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chapter3/User.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -1148,6 +1148,18 @@
             <element signature="e#178#179#0" expanded="true" />
             <element signature="e#210#211#0" expanded="true" />
             <element signature="e#238#239#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/chapter3/Playground.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="21" column="91" selection-start-line="21" selection-start-column="91" selection-end-line="21" selection-end-column="91" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#formAndJust#0;class#Playground#0" expanded="false" />
+            <element signature="method#subscripePrint#0;class#Playground#0" expanded="false" />
           </folding>
         </state>
       </provider>
