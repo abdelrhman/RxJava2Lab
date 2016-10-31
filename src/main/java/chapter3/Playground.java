@@ -1,6 +1,7 @@
 package chapter3;
 
 import io.reactivex.Observable;
+import io.reactivex.disposables.Disposable;
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -19,13 +20,13 @@ public class Playground {
     public static void main(String[] args) {
 
         //formAndJust();
-        subscripePrint(Observable.interval(500, TimeUnit.MILLISECONDS),"Interval Observable");
-        subscripePrint(Observable.interval(0L,1L, TimeUnit.SECONDS),"Timed Interval Observable");
-        subscripePrint(Observable.timer(1L, TimeUnit.SECONDS),"Timer Observable");
-        subscripePrint(Observable.error(Exception::new),"Error Observable");
-        subscripePrint(Observable.empty(),"Empty Observable");
-        subscripePrint(Observable.never(),"Never Observable");
-        subscripePrint(Observable.range(1,3),"Range Observable");
+        subscribePrint(Observable.interval(500, TimeUnit.MILLISECONDS),"Interval Observable");
+        subscribePrint(Observable.interval(0L,1L, TimeUnit.SECONDS),"Timed Interval Observable");
+        subscribePrint(Observable.timer(1L, TimeUnit.SECONDS),"Timer Observable");
+        subscribePrint(Observable.error(Exception::new),"Error Observable");
+        subscribePrint(Observable.empty(),"Empty Observable");
+        subscribePrint(Observable.never(),"Never Observable");
+        subscribePrint(Observable.range(1,3),"Range Observable");
         try {
             Thread.sleep(2000L);
         } catch (InterruptedException e) {
@@ -62,8 +63,8 @@ public class Playground {
                 .subscribe(System.out::println);
     }
 
-    private static <T> void subscripePrint( Observable<T> observable, String name){
-        observable.subscribe( (v) -> {
+    public static <T> Disposable subscribePrint(Observable<T> observable, String name){
+        return observable.subscribe( (v) -> {
             System.out.println(name + " "+ v);
         }, (e) -> {
             System.err.println("Error from "+name);
