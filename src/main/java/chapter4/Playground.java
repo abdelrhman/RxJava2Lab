@@ -52,9 +52,15 @@ public class Playground {
 //                .groupBy(album -> album.split(" ").length)
 //                .subscribe(obs -> subscribePrint(obs, obs.getKey()+" Words."));
 
-        Observable.fromIterable(albums)
-                .groupBy(album -> album.replaceAll("[^mM]", "").length(), album -> album.replaceAll("[mM]", "*"))
-                .subscribe( obs -> subscribePrint(obs, obs.getKey()+" by occurrences of (m)"));
+//        Observable.fromIterable(albums)
+//                .groupBy(album -> album.replaceAll("[^mM]", "").length(), album -> album.replaceAll("[mM]", "*"))
+//                .subscribe( obs -> subscribePrint(obs, obs.getKey()+" by occurrences of (m)"));
+
+        List<Number> numbers = Arrays.asList(1, 2, 3);
+        subscribePrint(Observable.fromIterable(numbers)
+                .cast(Integer.class)
+                .timestamp()
+                .timeInterval(), " Numbers");
 
 
     }

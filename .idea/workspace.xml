@@ -72,8 +72,8 @@
       <file leaf-file-name="Playground.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chapter4/Playground.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="350">
-              <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+            <state relative-caret-position="365">
+              <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="method#listFolder#0;class#Playground#0" expanded="false" />
@@ -1077,7 +1077,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478009295253</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="grouping">
+      <created>1478025541525</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1478025541525</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1163,7 +1170,8 @@
     <MESSAGE value="create ConnectableObservable using publish" />
     <MESSAGE value="Reactive sum with subjects" />
     <MESSAGE value="list files example." />
-    <option name="LAST_COMMIT_MESSAGE" value="list files example." />
+    <MESSAGE value="grouping" />
+    <option name="LAST_COMMIT_MESSAGE" value="grouping" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1389,8 +1397,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chapter4/Playground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="350">
-          <caret line="55" column="57" selection-start-line="55" selection-start-column="57" selection-end-line="55" selection-end-column="57" />
+        <state relative-caret-position="365">
+          <caret line="62" column="31" selection-start-line="62" selection-start-column="31" selection-end-line="62" selection-end-column="31" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="method#listFolder#0;class#Playground#0" expanded="false" />
