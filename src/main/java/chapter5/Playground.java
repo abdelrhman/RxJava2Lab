@@ -75,6 +75,10 @@ public class Playground {
         blockingSubscribePrint(willLearn.takeWhile(word -> word.length() > 2), "Take while");
         blockingSubscribePrint(willLearn.skipUntil(learnInterval), "skip until");
 
+        Observable<Object> test = Observable
+                .empty()
+                .defaultIfEmpty(5);
+        subscribePrint(test, "defaultIfEmpty");
 
 
     }
