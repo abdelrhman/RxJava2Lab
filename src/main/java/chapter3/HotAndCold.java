@@ -7,7 +7,7 @@ import io.reactivex.subjects.Subject;
 
 import java.util.concurrent.TimeUnit;
 
-import static chapter3.Playground.subscribePrint;
+import static utils.Helpers.subscribePrint;
 
 /**
  * The ConnectableObservable.

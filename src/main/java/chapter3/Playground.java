@@ -1,7 +1,7 @@
 package chapter3;
 
 import io.reactivex.Observable;
-import io.reactivex.disposables.Disposable;
+import utils.Helpers;
 
 import java.io.IOException;
 import java.nio.file.DirectoryStream;
@@ -20,13 +20,13 @@ public class Playground {
     public static void main(String[] args) {
 
         //formAndJust();
-        subscribePrint(Observable.interval(500, TimeUnit.MILLISECONDS),"Interval Observable");
-        subscribePrint(Observable.interval(0L,1L, TimeUnit.SECONDS),"Timed Interval Observable");
-        subscribePrint(Observable.timer(1L, TimeUnit.SECONDS),"Timer Observable");
-        subscribePrint(Observable.error(Exception::new),"Error Observable");
-        subscribePrint(Observable.empty(),"Empty Observable");
-        subscribePrint(Observable.never(),"Never Observable");
-        subscribePrint(Observable.range(1,3),"Range Observable");
+        Helpers.subscribePrint(Observable.interval(500, TimeUnit.MILLISECONDS),"Interval Observable");
+        Helpers.subscribePrint(Observable.interval(0L,1L, TimeUnit.SECONDS),"Timed Interval Observable");
+        Helpers.subscribePrint(Observable.timer(1L, TimeUnit.SECONDS),"Timer Observable");
+        Helpers.subscribePrint(Observable.error(Exception::new),"Error Observable");
+        Helpers.subscribePrint(Observable.empty(),"Empty Observable");
+        Helpers.subscribePrint(Observable.never(),"Never Observable");
+        Helpers.subscribePrint(Observable.range(1,3),"Range Observable");
         try {
             Thread.sleep(2000L);
         } catch (InterruptedException e) {
@@ -61,15 +61,6 @@ public class Playground {
         Observable.just(new User("Ahmad","Talat"))
                 .map( u -> u.getFname() + " " + u.getLname())
                 .subscribe(System.out::println);
-    }
-
-    public static <T> Disposable subscribePrint(Observable<T> observable, String name){
-        return observable.subscribe( (v) -> {
-            System.out.println(name + " "+ v);
-        }, (e) -> {
-            System.err.println("Error from "+name);
-            System.err.println(e.getLocalizedMessage());
-        },() ->{System.out.println(name + " Completed");});
     }
 
 
