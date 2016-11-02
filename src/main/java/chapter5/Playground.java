@@ -69,7 +69,7 @@ public class Playground {
 
         Observable<String> willLearn = Observable.just("one", "way", "or", "another", "I'll", "learn", "RxJava")
                 .zipWith(Observable.interval(200, TimeUnit.MILLISECONDS), (x, y) -> x);
-        Observable<Long> learnInterval = Observable.interval(500,TimeUnit.MILLISECONDS);
+        Observable<Long> learnInterval = Observable.interval(500, TimeUnit.MILLISECONDS);
 
         blockingSubscribePrint(willLearn.takeUntil(learnInterval), "Take until");
         blockingSubscribePrint(willLearn.takeWhile(word -> word.length() > 2), "Take while");
@@ -79,6 +79,28 @@ public class Playground {
                 .empty()
                 .defaultIfEmpty(5);
         subscribePrint(test, "defaultIfEmpty");
+
+
+        //One more item and then completes.
+        Observable<Integer> numbers = Observable.just("1", "2", "three", "4", "5")
+                .map(Integer::parseInt)
+                .onErrorReturn(e -> -1);
+        subscribePrint(numbers, "OnErrorReturn");
+
+        // replace with default observable.
+        Observable<Integer> defaultOnError = Observable.just(1, 2, 3, 5);
+        numbers = Observable.just("1", "2", "three", "4", "5")
+                .map(Integer::parseInt)
+                .onExceptionResumeNext(defaultOnError);
+        subscribePrint(numbers, "OnExceptionResumeNext");
+
+        numbers = Observable.just("1", "2", "three", "4", "5")
+                .doOnNext(e -> {
+                    assert !e.equals("three");
+                })
+                .map(Integer::parseInt)
+                .onErrorResumeNext(defaultOnError);
+        subscribePrint(numbers, "onErrorResumeNext");
 
 
     }

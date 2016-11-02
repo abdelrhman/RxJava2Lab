@@ -54,8 +54,8 @@
       <file leaf-file-name="Playground.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chapter5/Playground.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="464">
-              <caret line="79" column="31" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="31" />
+            <state relative-caret-position="479">
+              <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -633,7 +633,7 @@
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="settings.editor.selected.configurable" value="editor.preferences.completion" />
+    <property name="settings.editor.selected.configurable" value="preferences.keymap" />
     <property name="settings.editor.splitter.proportion" value="0.2" />
     <property name="prop_add_unversioned_files" value="true" />
     <property name="extract.method.default.visibility" value="private" />
@@ -1117,7 +1117,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478122763632</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="defaultIfEmpty example">
+      <created>1478122884120</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1478122884120</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1209,7 +1216,8 @@
     <MESSAGE value="finish zip" />
     <MESSAGE value="finish the combine operators" />
     <MESSAGE value="take examples." />
-    <option name="LAST_COMMIT_MESSAGE" value="take examples." />
+    <MESSAGE value="defaultIfEmpty example" />
+    <option name="LAST_COMMIT_MESSAGE" value="defaultIfEmpty example" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1428,8 +1436,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chapter5/Playground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="464">
-          <caret line="79" column="31" selection-start-line="79" selection-start-column="17" selection-end-line="79" selection-end-column="31" />
+        <state relative-caret-position="479">
+          <caret line="98" column="46" selection-start-line="98" selection-start-column="46" selection-end-line="98" selection-end-column="46" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
