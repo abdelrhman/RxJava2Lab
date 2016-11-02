@@ -1,5 +1,13 @@
 package chapter5;
 
+import io.reactivex.Observable;
+import utils.Helpers;
+
+import java.util.Arrays;
+import java.util.concurrent.TimeUnit;
+
+import static utils.Helpers.blockingSubscribePrint;
+
 /**
  * chapter 5
  */
@@ -15,12 +23,12 @@ public class Playground {
 //                ), "Simple Zip"
 //        );
         //
-//        subscribePrint(
-//                Observable.zip(
-//                        Observable.interval(0,300, TimeUnit.MILLISECONDS),
-//                        Observable.fromIterable(Arrays.asList("Z","I","I","P")),
-//                        (value, i) -> i
-//                ), "Timed Zip");
+        blockingSubscribePrint(
+                Observable.zip(
+                        Observable.interval(0,300, TimeUnit.MILLISECONDS),
+                        Observable.fromIterable(Arrays.asList("Z","I","I","P")),
+                        (value, i) -> i
+                ), "Timed Zip");
 
 
 
