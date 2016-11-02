@@ -4,6 +4,7 @@ import io.reactivex.Observable;
 import utils.Helpers;
 
 import java.util.Arrays;
+import java.util.Random;
 import java.util.concurrent.TimeUnit;
 
 import static utils.Helpers.blockingSubscribePrint;
@@ -27,29 +28,28 @@ public class Playground {
 
         blockingSubscribePrint(
                 Observable.zip(
-                        Observable.interval(0,300, TimeUnit.MILLISECONDS),
-                        Observable.fromIterable(Arrays.asList("Z","I","I","P")),
+                        Observable.interval(0, 300, TimeUnit.MILLISECONDS),
+                        Observable.fromIterable(Arrays.asList("Z", "I", "I", "P")),
                         (value, i) -> i
                 ), "Timed Zip");
 
         Observable<String> greetings =
                 Observable.just("Hello", "Hi", "Howdy", "Zdravei", "Yo", "Good to see ya")
-                        .zipWith(Observable.interval(1,TimeUnit.SECONDS),Helpers::onlyFirstArg);
+                        .zipWith(Observable.interval(1, TimeUnit.SECONDS), Helpers::onlyFirstArg);
 
         Observable<String> names =
                 Observable.just("Meddle", "Tanya", "Dali", "Joshua")
-                        .zipWith(Observable.interval(1500L,TimeUnit.MILLISECONDS),Helpers::onlyFirstArg);
+                        .zipWith(Observable.interval(1500L, TimeUnit.MILLISECONDS), Helpers::onlyFirstArg);
 
         Observable<String> punctuation =
                 Observable.just(".", "?", "!", "!!!", "...")
-                        .zipWith(Observable.interval(1100,TimeUnit.MILLISECONDS),Helpers::onlyFirstArg);
+                        .zipWith(Observable.interval(1100, TimeUnit.MILLISECONDS), Helpers::onlyFirstArg);
 
         Observable<String> combined = Observable
                 .combineLatest(
                         greetings, names, punctuation,
                         (greeting, name, puntuation) ->
-                                greeting + " " + name + puntuation)
-                ;
+                                greeting + " " + name + puntuation);
         blockingSubscribePrint(combined, "Sentences");
 
         Observable<String> merged = Observable
@@ -57,8 +57,23 @@ public class Playground {
         subscribePrint(merged, "Words");
 
 
+        Observable<String> words = Observable.just("Some", "Other");
+        Observable<Long> interval = Observable.interval(100, TimeUnit.MILLISECONDS).take(2);
+        blockingSubscribePrint(Observable.amb(Arrays.asList(words, interval)), "Amb 1");
+
+        Random r = new Random();
+        Observable<String> source1 = Observable.just("data from source 1").delay(r.nextInt(1000), TimeUnit.MILLISECONDS);
+        Observable<String> source2 = Observable.just("data from source 2").delay(r.nextInt(1000), TimeUnit.MILLISECONDS);
+        blockingSubscribePrint(Observable.amb(Arrays.asList(source1, source2)), "Amb 2");
 
 
+        Observable<String> willLearn = Observable.just("one", "way", "or", "another", "I'll", "learn", "RxJava")
+                .zipWith(Observable.interval(200, TimeUnit.MILLISECONDS), (x, y) -> x);
+        Observable<Long> learnInterval = Observable.interval(500,TimeUnit.MILLISECONDS);
+
+        blockingSubscribePrint(willLearn.takeUntil(learnInterval), "Take until");
+        blockingSubscribePrint(willLearn.takeWhile(word -> word.length() > 2), "Take while");
+        blockingSubscribePrint(willLearn.skipUntil(learnInterval), "skip until");
 
 
 
