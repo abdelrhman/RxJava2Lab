@@ -1,19 +1,5 @@
 package chapter5;
 
-import com.google.gson.Gson;
-import io.reactivex.Observable;
-import org.apache.http.nio.client.HttpAsyncClient;
-import rx.apache.http.ObservableHttp;
-
-import java.util.HashSet;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-
-import static java.nio.charset.StandardCharsets.UTF_8;
-import static utils.Helpers.subscribePrint;
-
 /**
  * Chapter 5
  */

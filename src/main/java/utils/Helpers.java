@@ -2,10 +2,16 @@ package utils;
 
 import io.reactivex.Notification;
 import io.reactivex.Observable;
+import io.reactivex.Scheduler;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Action;
 import io.reactivex.functions.Consumer;
 
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicReference;
 
 /**
@@ -71,5 +77,57 @@ public class Helpers {
             nextOffset.getAndUpdate(p -> "-" + p);
 
         };
+
+    }
+
+    public static void schedule(Scheduler scheduler, int numberOfTasks, boolean onTheSameWorker){
+        List<Integer> list = new ArrayList<>();
+        AtomicInteger current = new AtomicInteger(0);
+        Random random = new Random();
+        Scheduler.Worker worker = scheduler.createWorker();
+        Runnable addWork = () -> {
+            synchronized (current){
+                System.out.println("Add: "+Thread.currentThread().getName()+" "+current.get());
+                list.add(random.nextInt(current.get()));
+                System.out.println("End Add: "+ Thread.currentThread().getName()+" "+current.get());
+            }
+        };
+        Runnable removeWork = () -> {
+            synchronized (current){
+                if (!list.isEmpty()){
+                    System.out.println("Remove: "+Thread.currentThread().getName());
+                    list.remove(0);
+                    System.out.println("Remove End: "+Thread.currentThread().getName());
+                }
+            }
+        };
+
+        Runnable work = () ->{
+            System.out.println(Thread.currentThread().getName());
+            Observable.range(1, numberOfTasks)
+                    .subscribe( i -> {
+                       current.set(i);
+                        System.out.println("Begin add");
+                        if (onTheSameWorker){
+                            worker.schedule(addWork);
+                        }else{
+                            scheduler.createWorker().schedule(addWork);
+                        }
+                        while (!list.isEmpty()){
+                            System.out.println("Begin Remove");
+                            if (onTheSameWorker)
+                                worker.schedule(removeWork);
+                            else
+                                scheduler.createWorker().schedule(removeWork);
+                            System.out.println("Remove Ended");
+                        }
+
+                    });
+        };
+
+        worker.schedule(work);
+
+
+
     }
 }
