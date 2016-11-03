@@ -3,10 +3,10 @@ package utils;
 import io.reactivex.Notification;
 import io.reactivex.Observable;
 import io.reactivex.disposables.Disposable;
+import io.reactivex.functions.Consumer;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.atomic.AtomicReference;
-import java.util.function.Consumer;
 
 /**
  * Created by m on 11/2/16.
@@ -41,23 +41,31 @@ public class Helpers {
         return t;
     }
 
+    public static <T> Consumer<Notification<? super T>> debug(String description) {
+        return debug(description, "");
+    }
 
-    public static <T> Consumer<Notification<? super T>> debug(String description, String offset){
+    public static <T> Consumer<Notification<? super T>> debug(String description, String offset) {
         AtomicReference<String> nextOffset = new AtomicReference<>(">");
         return notification -> {
-            if(notification.isOnNext()){
-                System.out.println(Thread.currentThread().getName()+ "|"+ description+": "+offset+ nextOffset.get()+notification.getValue());
-            }else if (notification.isOnComplete()){
-                System.out.println(Thread.currentThread().getName()+ "|"+ description+": "+offset+ nextOffset.get()+"|");
 
-            }else if (notification.isOnError()){
+            System.out.println("OKAY");
+            if (notification.isOnNext()) {
+                System.out.println(Thread.currentThread().getName() + "|" + description + ": " + offset + nextOffset.get() + notification.getValue());
+            } else if (notification.isOnComplete()) {
+                System.out.println(Thread.currentThread().getName() + "|" + description + ": " + offset + nextOffset.get() + "|");
+
+            } else if (notification.isOnError()) {
                 System.err.println(
                         Thread.currentThread().getName() +
                                 "|" + description + ": " + offset +
                                 nextOffset.get() + " X " + notification.getError()
                 );
+            } else {
+                System.out.println("WTF");
             }
             nextOffset.getAndUpdate(p -> "-" + p);
+
         };
     }
 }
