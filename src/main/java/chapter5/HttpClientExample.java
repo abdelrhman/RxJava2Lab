@@ -15,7 +15,7 @@ import static java.nio.charset.StandardCharsets.UTF_8;
 import static utils.Helpers.subscribePrint;
 
 /**
- * Created by m on 11/3/16.
+ * Chapter 5
  */
 public class HttpClientExample {
 
