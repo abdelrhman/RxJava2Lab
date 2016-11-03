@@ -49,20 +49,24 @@ public class Helpers {
         AtomicReference<String> nextOffset = new AtomicReference<>(">");
         return notification -> {
 
-            System.out.println("OKAY");
             if (notification.isOnNext()) {
-                System.out.println(Thread.currentThread().getName() + "|" + description + ": " + offset + nextOffset.get() + notification.getValue());
+                System.out.println(
+                        Thread.currentThread().getName() +
+                                "|" + description + ": " + offset +
+                                nextOffset.get() + notification.getValue()
+                );
             } else if (notification.isOnComplete()) {
-                System.out.println(Thread.currentThread().getName() + "|" + description + ": " + offset + nextOffset.get() + "|");
-
+                        System.out.println(
+                                Thread.currentThread().getName() +
+                                        "|" + description + ": " + offset +
+                                        nextOffset.get() + "|"
+                );
             } else if (notification.isOnError()) {
                 System.err.println(
                         Thread.currentThread().getName() +
                                 "|" + description + ": " + offset +
                                 nextOffset.get() + " X " + notification.getError()
                 );
-            } else {
-                System.out.println("WTF");
             }
             nextOffset.getAndUpdate(p -> "-" + p);
 
