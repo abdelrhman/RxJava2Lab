@@ -104,25 +104,43 @@ public class Helpers {
 
         Runnable work = () ->{
             System.out.println(Thread.currentThread().getName());
-            Observable.range(1, numberOfTasks)
-                    .subscribe( i -> {
-                       current.set(i);
-                        System.out.println("Begin add");
-                        if (onTheSameWorker){
-                            worker.schedule(addWork);
-                        }else{
-                            scheduler.createWorker().schedule(addWork);
-                        }
-                        while (!list.isEmpty()){
-                            System.out.println("Begin Remove");
-                            if (onTheSameWorker)
-                                worker.schedule(removeWork);
-                            else
-                                scheduler.createWorker().schedule(removeWork);
-                            System.out.println("Remove Ended");
-                        }
+            for (int i = 1; i <= numberOfTasks ; i++){
+                current.set(i);
+                System.out.println("Begin add");
+                if (onTheSameWorker){
+                    worker.schedule(addWork);
+                }else{
+                    scheduler.createWorker().schedule(addWork);
+                }
+                while (!list.isEmpty()){
+                    System.out.println("Begin Remove");
+                    if (onTheSameWorker)
+                        worker.schedule(removeWork);
+                    else
+                        scheduler.createWorker().schedule(removeWork);
+                    System.out.println("Remove Ended");
+                }
 
-                    });
+            }
+//            Observable.range(1, numberOfTasks)
+//                    .subscribe( i -> {
+//                       current.set(i);
+//                        System.out.println("Begin add");
+//                        if (onTheSameWorker){
+//                            worker.schedule(addWork);
+//                        }else{
+//                            scheduler.createWorker().schedule(addWork);
+//                        }
+//                        while (!list.isEmpty()){
+//                            System.out.println("Begin Remove");
+//                            if (onTheSameWorker)
+//                                worker.schedule(removeWork);
+//                            else
+//                                scheduler.createWorker().schedule(removeWork);
+//                            System.out.println("Remove Ended");
+//                        }
+//
+//                    });
         };
 
         worker.schedule(work);
