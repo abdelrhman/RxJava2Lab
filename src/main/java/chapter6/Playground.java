@@ -1,5 +1,6 @@
 package chapter6;
 
+import io.reactivex.Flowable;
 import io.reactivex.Observable;
 import io.reactivex.Scheduler;
 import io.reactivex.schedulers.Schedulers;
@@ -44,14 +45,24 @@ public class Playground {
 //                .subscribe();
 //        System.out.println("Hey");
 
-        CountDownLatch countDown = new CountDownLatch(1);
-        Observable<Integer> range = Observable.range(20, 4)
-                .doOnEach(debug("Source"))
-                .subscribeOn(Schedulers.io())
-                .doAfterTerminate(() -> countDown.countDown());
+//        CountDownLatch countDown = new CountDownLatch(1);
+//        Observable<Integer> range = Observable.range(20, 4)
+//                .doOnEach(debug("Source"))
+//                .subscribeOn(Schedulers.io())
+//                .doAfterTerminate(() -> countDown.countDown());
+//        range.subscribe();
+//        System.out.println("Hey!");
+//        countDown.await();
+
+        Observable<Integer> range = Observable.range(1,4)
+                .flatMap(i -> Observable.range(i, 3)
+                        .doOnEach(debug("Range"))
+                .subscribeOn(Schedulers.computation()
+                ));
         range.subscribe();
-        System.out.println("Hey!");
-        countDown.await();
+
+
+
 
         Thread.sleep(1000);
 

@@ -4,7 +4,6 @@
     <list default="true" id="d69dddff-1c8c-479f-96a5-e0436d31ba40" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/chapter6/Playground.java" afterPath="$PROJECT_DIR$/src/main/java/chapter6/Playground.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/utils/Helpers.java" afterPath="$PROJECT_DIR$/src/main/java/utils/Helpers.java" />
     </list>
     <ignored path="rxjava2lab.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -35,8 +34,8 @@
       <file leaf-file-name="Playground.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/chapter6/Playground.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="245">
-              <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+            <state relative-caret-position="365">
+              <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1176,7 +1175,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478211996679</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="SubscribeOn, ObserveOn">
+      <created>1478219096573</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1478219096574</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -1276,7 +1282,8 @@
     <MESSAGE value="test the debug function" />
     <MESSAGE value="using trampoline" />
     <MESSAGE value="create helper for schedulers" />
-    <option name="LAST_COMMIT_MESSAGE" value="create helper for schedulers" />
+    <MESSAGE value="SubscribeOn, ObserveOn" />
+    <option name="LAST_COMMIT_MESSAGE" value="SubscribeOn, ObserveOn" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1672,8 +1679,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/chapter6/Playground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="245">
-          <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
+        <state relative-caret-position="365">
+          <caret line="63" column="8" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="8" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
